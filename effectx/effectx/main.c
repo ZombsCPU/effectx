@@ -1,34 +1,44 @@
 #include "def.h"
 
-int shader1(RGBQUAD *rgbquad, sinfo s)
+int WaveShader(RGBQUAD* pixels, sinfo info)
 {
-	RGBQUAD color;
+    RGBQUAD* temp = (RGBQUAD*)malloc(sizeof(RGBQUAD) * info.pixelc);
+    if (!temp) return -1;
 
-	float x = 0, y = 0, c = s.pixelc;
-	float opacity = 0.1f;
+    memcpy(temp, pixels, sizeof(RGBQUAD) * info.pixelc);
 
-	for (uint i = 0; i < c; i++)
-	{
-		x = i % s.width;
-		y = s.height - i / s.width;
+    float time = info.time / 1000.0f;
+    float frequency = 0.02f;
+    float amplitude = 20.0f;
+    int width = info.width;
+    int height = info.height;
 
-		color = rgbquad[i];
+    for (int y = 0; y < height; ++y)
+    {
+        float offsetX = sinf(time + y * frequency) * amplitude;
 
-		color.rgbRed += (BYTE)(opacity*255 * sin((float)x / s.width * M_PI + 0.001 * s.time / 10.0f));
-		color.rgbGreen += (BYTE)(opacity*255 * sin((float)y / s.height * M_PI + 0.001 * s.time / 10.0f));
-		color.rgbBlue += (BYTE)(opacity*255 * sin((float)(x + y) / (s.width + s.height) * M_PI + 0.001*s.time / 10.0f));
+        for (int x = 0; x < width; ++x)
+        {
+            int srcX = x + (int)offsetX;
 
-		rgbquad[i] = color;
-	}
+            if (srcX >= 0 && srcX < width)
+            {
+                int dstIndex = y * width + x;
+                int srcIndex = y * width + srcX;
+                pixels[dstIndex] = temp[srcIndex];
+            }
+        }
+    }
 
-	if (s.time >= 8000) return -1;
-	return 5;
+    free(temp);
+    if (time >= 8) return -1;
+    return 16; // ~60 FPS
 }
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
 {
-	RunShaderS(&shader1);
+	RunShaderS(&WaveShader);
 
 	return 0;
 }
