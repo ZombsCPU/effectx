@@ -42,11 +42,7 @@ DWORD ShaderThread(LPVOID lpParam)
 		0
 	);
 
-	if (hBitmap == NULL)
-	{
-		MessageBoxA(NULL, "Erreur", "effectx.exe", MB_OK | MB_ICONERROR);
-		return 1;
-	}
+	if (hBitmap == NULL) return 1;
 
 	SelectObject(mDC, hBitmap);
 
@@ -76,11 +72,7 @@ HANDLE RunShader(LPTHREAD_START_ROUTINE Shader, BOOL Wait)
 		NULL
 	);
 
-	if (hThread == NULL)
-	{
-		MessageBoxA(NULL, "Erreur", "effectx.exe", MB_OK | MB_ICONERROR);
-		return NULL;
-	}
+	if (hThread == NULL) return NULL;
 	
 	if (Wait)
 	{
