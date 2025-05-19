@@ -1,0 +1,21 @@
+﻿  main.c
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(12,9): warning C4244: '=': conversion from 'uint' to 'float', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(13,16): warning C4244: '=': conversion from 'uint' to 'float', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(7,27): warning C4244: 'initializing': conversion from 'uint' to 'float', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(80,9): warning C4244: '=': conversion from 'uint' to 'float', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(81,16): warning C4244: '=': conversion from 'uint' to 'float', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(95,24): warning C4244: '=': conversion from 'float' to 'BYTE', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(96,26): warning C4244: '=': conversion from 'float' to 'BYTE', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(97,25): warning C4244: '=': conversion from 'float' to 'BYTE', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(109,23): warning C4244: '=': conversion from 'double' to 'BYTE', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(110,25): warning C4244: '=': conversion from 'double' to 'BYTE', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(111,24): warning C4244: '=': conversion from 'double' to 'BYTE', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(70,27): warning C4244: 'initializing': conversion from 'uint' to 'float', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(87,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\kkr44\source\repos\effectx\effectx\main.c(128,2): warning C4013: 'RunShader' undefined; assuming extern returning int
+  Generating code
+  2 of 6 functions (33.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  effectx.vcxproj -> C:\Users\kkr44\source\repos\effectx\x64\Release\effectx.exe
